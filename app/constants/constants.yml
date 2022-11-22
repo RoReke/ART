@@ -1,0 +1,6 @@
+default:
+  routes:
+    schedule_versions:
+      route: "header"
+      page_title: "header"
+  valid_db_sources: ["local", "dev"]
