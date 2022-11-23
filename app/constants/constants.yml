@@ -1,6 +1,6 @@
 default:
   routes:
-    schedule_versions:
-      route: "header"
-      page_title: "header"
+    home_page:
+      route: "home_page"
+      page_title: "Inicio"
   valid_db_sources: ["local", "dev"]

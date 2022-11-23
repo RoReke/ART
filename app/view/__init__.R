@@ -1,2 +1,4 @@
-# View: Shiny modules and related code.
-# https://go.appsilon.com/rhino-project-structure
+box::use(
+  ./header,
+  ./home_page
+)
