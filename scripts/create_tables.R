@@ -28,37 +28,43 @@ if (DB_SOURCE %in% constants$valid_db_sources) {
 
 con <- db_manager_instance$get_connection()
 
-#Create change log table
+# Drop table
+dbExecute(con, glue("DROP TABLE IF EXISTS {SCHEMA}.cobertura;"))
+
+# Create cobertura table
 dbGetQuery(
   conn = con,
   glue("CREATE TABLE IF NOT EXISTS {SCHEMA}.cobertura
     (
       id uuid,
-      PERIODO int,
+      Aseguradora text,
+      Cart int,
+      Ciiu int,
+      Descripcion text,
+      Grupo int,
+      Grupo_Desc text,
+      Periodo int,
+      Periodo_Filtro text,
       PERIODO_FECHA int,
-      CART int,
-      ASEGURADORA varchar(50),
-      PROVINCIADGI int,
-      PROVINCIA varchar(50),
-      SECCION int,
-      SECCION_DESC varchar(50),
-      GRUPO int,
-      GRUPO_DESC varchar(50),
-      CIIU int,
-      CIIU_desc varchar(50),
-      TAMAÑOAGRU_UP varchar(50),
-      TAMAÑOAGRU_D varchar(50),
-      TIPO_EMPLEADOR varchar(50),
-      Tipo_empleador_desc varchar(50),
-      EMPLEADORES int,
-      CANTTRABAJADORES_UP int,
-      CANTTRABAJADORES_D int,
-      REMUNERACION numeric,
-      CUOTAFFE numeric,
-      CUOTADOMESTICOS numeric,
-      RECAUDADA_UP numeric,
-      RECAUDADA_CP numeric
+      Provincia text,
+      Provinciadgi int,
+      Seccion text,
+      Seccion_Desc text,
+      Tamañoagru_D text,
+      Tamañoagru_Up text,
+      Tipo_Empleador_Desc text,
+      Canttrabajadores_D int,
+      Canttrabajadores_Up int,
+      Cuotadomesticos numeric,
+      Cuotaffe numeric,
+      Empleadores int,
+      Número_de_registros int,
+      Recaudada_Cp numeric,
+      Recaudada_Up numeric,
+      Remuneracion numeric,
+      Tipo_Empleador text
     );"
-  )
-)
+  ))
+
+db_manager_instance$disconnect()
 
