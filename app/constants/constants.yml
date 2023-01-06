@@ -3,4 +3,7 @@ default:
     home_page:
       route: "home_page"
       page_title: "Inicio"
+    table_page:
+      route: "table_page"
+      page_title: "Tabla: información general"
   valid_db_sources: ["local", "dev"]

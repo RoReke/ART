@@ -34,6 +34,10 @@ router <- make_router(
   default = route(
     constants$routes$home_page$route,
     view$home_page$ui(ns("home_page"), constants)
+    ),
+  route(
+    constants$routes$table_page$route,
+    view$table_page$ui(ns("table_page"), constants)
   )
 )
 
@@ -46,8 +50,8 @@ ui <- function(id) {
   fluidPage(
     title = "A R T Cobertura",
     useShinyjs(),
-    view$header$ui(ns("header"), constants)#,
-    #div(router$ui, style = "margin-top: 5px;")
+    view$header$ui(ns("header"), constants),
+    div(router$ui, style = "margin-top: 5px;")
   )
 }
 
@@ -57,7 +61,8 @@ server <- function(id) {
 
     # Plug router into Shiny server.
     router$server(input, output, session)
-
+    # call to modules
+    view$table_page$server(ns("table_page"), constants)
   })
 }
 

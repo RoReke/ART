@@ -1,4 +1,5 @@
 box::use(
   ./header,
-  ./home_page
+  ./home_page,
+  ./table_page
 )

@@ -1,7 +1,7 @@
 box::use(
   shiny.router[change_page, get_page, route_link],
   shiny[...],
-  shinyWidgets[dropdown],
+  shinyWidgets[...],
   glue[glue]
 )
 
@@ -14,10 +14,15 @@ ui <- function(id, constants) {
       style = "left:5px; margin-top: 10px;",
       dropdown(
         icon = icon("bars"),
-        style = "unite",
+        style = "pill",
         tags$ul(
           tags$li(a(href = route_link(
-            constants$routes$home_page$route), constants$routes$home_page$page_title)
+            constants$routes$home_page$route),
+            constants$routes$home_page$page_title)
+          ),
+          tags$li(a(href = route_link(
+            constants$routes$table_page$route),
+            constants$routes$table_page$page_title)
           )
         )
       )

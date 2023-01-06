@@ -36,7 +36,6 @@ dbGetQuery(
   conn = con,
   glue("CREATE TABLE IF NOT EXISTS {SCHEMA}.cobertura
     (
-      id uuid,
       Aseguradora text,
       Cart int,
       Ciiu int,
